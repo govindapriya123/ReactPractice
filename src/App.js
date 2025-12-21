@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import { Timer } from "./Timer";
+import { TodoApp } from "./TodoApp";
 function App() {
+  const [count,setCount]=useState(0);
+  const handleIncrement=()=>{
+   setCount(prev=>prev+1);
+  }
+  const handleDecrement=()=>{
+  if(count>0)
+{   setCount(prev=>prev-1);
+}
+  }
+  const handleReset=()=>{
+    setCount(0);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display:'flex',flex:1,justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
+     <h1>Counter App</h1>
+     <p>Count Value:{count}</p>
+     <button onClick={handleIncrement}>+</button>
+     <button onClick={handleDecrement} disabled={count===0}>-</button>
+     <button onClick={handleReset}>Reset</button>
+     <Timer/>
+     <TodoApp/>
     </div>
   );
 }
