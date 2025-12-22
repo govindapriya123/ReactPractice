@@ -2,6 +2,10 @@ import React, {  useState } from "react";
 export const TodoApp = () => {
     const [todo, setTodo] = useState("");
     const [todos, setTodos] = useState([]);
+    /**
+     * 
+     * @returns 
+     */
     const handleAddTodo = () => {
         if (!todo.trim()) return;
         setTodos(prev => [
@@ -14,9 +18,17 @@ export const TodoApp = () => {
         ]);
         setTodo("");
     }
+    /**
+     * 
+     * @param {*} id 
+     */
     const handleDeleteTodo = (id) => {
         setTodos(prev => prev.filter(a => a.id !== id));
     }
+    /**
+     * 
+     * @param {*} id 
+     */
     const handleToggleTodo = (id) => {
         setTodos(prev => prev.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
     }
