@@ -16,9 +16,7 @@ export const Tabs=({tabs}:TabProps)=>{
             key={tab?.title}
             onClick={()=>setActiveIndex(index)}
             style={{
-                padding:"8px 16px",
-                borderBottom:activeIndex===index?"2px solid blue":"none"
-            }}
+                padding:"8px 16px"}}
             >
             {tab.title}
                 </button>
